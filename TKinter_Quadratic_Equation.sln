@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "TKinter_Quadratic_Equation", "TKinter_Quadratic_Equation\TKinter_Quadratic_Equation.pyproj", "{792647ED-68D3-4F6E-BD84-2380724BAD86}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{792647ED-68D3-4F6E-BD84-2380724BAD86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{792647ED-68D3-4F6E-BD84-2380724BAD86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AE565BAB-74DD-4C81-9CB7-5ACAA7B63452}
+	EndGlobalSection
+EndGlobal
