@@ -1,5 +1,4 @@
 from tkinter import *
-from module1 import *
 import matplotlib.pyplot as plt #Y=...
 from numpy import * #[a,b]
 
@@ -42,12 +41,12 @@ def solve():
     return graf,D,t
 
 
-def kala():
+def whale():
     x1=arange(0,9.5,0.5)
-    y1=(2/27)*x1**2-3
+    y1=(2/27)*x1*x1-3
     x2=arange(-10,0.5,0.5)
-    y2=0.04*x2**2-3
-    x3=arange(-9,-3.5,0.5)
+    y2=0.04*x2*x2-3
+    x3=arange(-9,-2.5,0.5)
     y3=(2/9)*(x3+6)**2+1
     x4=arange(-3,9.5,0.5)
     y4=(-1/12)*(x4-3)**2+6
@@ -55,41 +54,62 @@ def kala():
     y5=(1/9)*(x5-5)**2+2
     x6=arange(5,8.5,0.5)
     y6=(1/8)*(x6-7)**2+1.5
-    x7=arange(-12,-8.5,0.5)
+    x7=arange(-13,-8.5,0.5)
     y7=(-0.75)*(x7+11)**2+6
     x8=arange(-15,-12.5,0.5)
     y8=(-0.5)*(x8+13)**2+3
-    x9=arange(-15,-10, 0.5)
+    x9=arange(-15,-9.5, 0.5)
     y9=[1]*len(x9)
     x10=arange(3,4,0.5)
-    y10=[3]*len(x9)
-    fig=figure()
-    plot(x1,y1,x2,y2,x3,y3,x4,y4,x5,y5,x6,y6,x7,y7,x8,y8,x9,y9,x10,y10)
-    title('')
-    ylabel('y')
-    xlabel('x')
-    grid(True)
-    show()
+    y10=[3]*len(x10)
+    fig=plt.figure()
+    plt.plot(x1,y1,x2,y2,x3,y3,x4,y4,x5,y5,x6,y6,x7,y7,x8,y8,x9,y9,x10,y10)
+    plt.title('')
+    plt.ylabel('y')
+    plt.xlabel('x')
+    plt.grid(True)
+    plt.show()
+
+def Umbrella():
+    x1=arange(-12, 12.5, 0.5)
+    y1=(-1/18)*x1*x1+12
+    x2=arange(-4, 4.5, 0.5)
+    y2=(-1/8)*x2*x2+6
+    x3=arange(-12, -4.5, 0.5)
+    y3=(-1/8)*(x3+8)**2+6
+    x4=arange(4, 12.5, 0.5)
+    y4=(-1/8)*(x4-8)**2+6
+    x5=arange(-4, -0.3, 0.5)
+    y5=2*(x5+3)**2-9
+    x6=arange(-4, 0.2, 0.5)
+    y6=1.5*(x6+3)**2-10
+    fig=plt.figure()
+    plt.plot(x1,y1,x2,y2,x3,y3,x4,y4,x5,y5,x6,y6)
+    plt.title('')
+    plt.ylabel('y')
+    plt.xlabel('x')
+    plt.grid(True)
+    plt.show()
 
 
 def graafik():
     global graf,D,t
     graf,D,t=solve()
     if graf==True:
-        a_=float(a.get())
-        b_=float(b.get())
-        c_=float(c.get())
+        a_=float(txt1.get())
+        b_=float(txt2.get())
+        c_=float(txt3.get())
         x0=(-b_)/(2*a_)
         y0=a_*x0*x0+b_*x0+c_
         x1 = arange(x0-10, x0+10, 0.5)#numpy(min max step [min,max])
         y1=a_*x1*x1+b_*x1+c_
-        fig = figure()#numpy
-        plot(x0,y0,x1,y1,'r-d')#numpy
-        title('Quadratic quation')
-        ylabel('y')
-        xlabel('x')
-        grid(True)
-        show()
+        fig = plt.figure()
+        plt.plot(x0,y0,x1,y1,'r-d')
+        plt.title('Quadratic quation')
+        plt.ylabel('y')
+        plt.xlabel('x')
+        plt.grid(True)
+        plt.show()
         text=f"Parabola's peak ({x0},{y0})"
     else:
         text=f"Can't build a graphic"
@@ -112,9 +132,9 @@ window=Tk()
 window.title("Solving quadratic quation")
 window.geometry('700x400')
 f1=Frame(window,width=700,height=400)
-f1.pack(side=TOP)
+f1.place(x=0,y=0)
 f2=Frame(window,width=700,height=400)
-f2.pack(side=BOTTOM)
+f2.place(x=0,y=400)
 
 btn=Button(f1,text="Solve",font="Arial 18",width=10,bg="Grey",fg="Black",relief=RAISED,command=solve)
 btn_g=Button(f1,text="Graphic",font="Arial 18",width=10,bg="Grey",fg="Black",relief=RAISED,command=graafik)
@@ -146,11 +166,12 @@ lbl.place(relx=0.5,rely=0.0365,anchor='center')
 answer.place(relx=0.5,rely=0.65,anchor='center')
 
 var=IntVar()
-r1=Radiobutton(f2,text="Whale",variable=var,var=1,font="Courier 18")#kala
-r2=Radiobutton(f2,text="Glasses",variable=var,var=1,font="Courier 18")#kala
-r3=Radiobutton(f2,text="Froggie",variable=var,var=1,font="Courier 18")#kala
+r1=Radiobutton(f2,text="Whale",variable=var,value=1,font="Courier 18",command=whale)
+r2=Radiobutton(f2,text="Glasses",variable=var,value=2,font="Courier 18")
+r3=Radiobutton(f2,text="Tree",variable=var,value=3,font="Courier 18",command=Umbrella)
 #--------
-#r1.place(f2,relx=0.5,rely=0.5,anchor='center')
+r1.place(relx=0,rely=0)
+r3.place(relx=0.3,rely=0)
 
 
 window.mainloop()
