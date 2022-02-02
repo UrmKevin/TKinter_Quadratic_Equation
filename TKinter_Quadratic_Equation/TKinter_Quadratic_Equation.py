@@ -75,13 +75,13 @@ def Umbrella():
     y1=(-1/18)*x1*x1+12
     x2=arange(-4, 4.5, 0.5)
     y2=(-1/8)*x2*x2+6
-    x3=arange(-12, -4.5, 0.5)
+    x3=arange(-12, -3.5, 0.5)
     y3=(-1/8)*(x3+8)**2+6
     x4=arange(4, 12.5, 0.5)
     y4=(-1/8)*(x4-8)**2+6
-    x5=arange(-4, -0.3, 0.5)
+    x5=arange(-4, -0.2, 0.5)
     y5=2*(x5+3)**2-9
-    x6=arange(-4, 0.2, 0.5)
+    x6=arange(-4, 0.5, 0.5) 
     y6=1.5*(x6+3)**2-10
     fig=plt.figure()
     plt.plot(x1,y1,x2,y2,x3,y3,x4,y4,x5,y5,x6,y6)
@@ -91,6 +91,67 @@ def Umbrella():
     plt.grid(True)
     plt.show()
 
+def glasses():
+    x1=arange(-9, -0.5, 0.5)
+    y1=(-1/16)*(x1+5)**2+2
+    x2=arange(1, 9.5, 0.5)
+    y2=(-1/16)*(x2-5)**2+2
+    x3=arange(-9, -0.5,0.5)
+    y3=(1/4)*(x3+5)**2-3
+    x4=arange(1, 9.5,0.5)
+    y4=(1/4)*(x4-5)**2-3
+    x5=arange(-9, -5.5,0.5)
+    y5=-(x5+7)**2+5
+    x6=arange(6, 9.5,0.5)
+    y6=-(x6-7)**2+5
+    x7=arange(-1, 1.5,0.5)
+    y7=(-0.5)*x7**2+1.5
+    fig=plt.figure()
+    plt.plot(x1,y1,x2,y2,x3,y3,x4,y4,x5,y5,x6,y6,x7,y7)
+    plt.title('')
+    plt.ylabel('y')
+    plt.xlabel('x')
+    plt.grid(True)
+    plt.show()
+
+def butterfly():
+    x1=arange(-7, 7.5, 0.5)
+    y1=(-3/49)*x1*x1+8
+    x2=arange(-7, 7.5, 0.5)
+    y2=(4/49)*x2*x2+1
+    x3=arange(-6.8, -2.5, 0.5)
+    y3=-0.75*(x3+4)**2+11
+    x4=arange(2, 7.3, 0.5)
+    y4=-0.75*(x4-4)**2+11
+    x5=arange(-5.8, -3.3, 0.5)
+    y5=-(x5+4)**2+9
+    x6=arange(2.8, 6.3, 0.5)
+    y6=-(x6-4)**2+9
+    x7=arange(-4, 4.5, 0.5)
+    y7=(4/9)*x7*x7-5
+    x8=arange(-5.2, 5.7, 0.5)
+    y8=(4/9)*x8*x8-9
+    x9=arange(-7, -3.3, 0.5)
+    y9=-(1/16)*(x9+3)**2-6
+    x10=arange(2.8, 7.5, 0.5)
+    y10=-(1/16)*(x10-3)**2-6
+    x11=arange(-7, 0.5, 0.5)
+    y11=(1/9)*(x11+4)**2-11
+    x12=arange(0, 7.5, 0.5)
+    y12=(1/9)*(x12-4)**2-11
+    x13=arange(-7, -5, 0.5)
+    y13=-(x13+5)**2
+    x14=arange(4.5, 7.5, 0.5)
+    y14=-(x14-5)**2
+    x15=arange(-3, 3.5, 0.5)
+    y15=(2/9)*x15+2
+    fig=plt.figure()
+    plt.plot(x1,y1,x2,y2,x3,y3,x4,y4,x5,y5,x6,y6,x7,y7)
+    plt.title('')
+    plt.ylabel('y')
+    plt.xlabel('x')
+    plt.grid(True)
+    plt.show()
 
 def graafik():
     global graf,D,t
@@ -167,11 +228,14 @@ answer.place(relx=0.5,rely=0.65,anchor='center')
 
 var=IntVar()
 r1=Radiobutton(f2,text="Whale",variable=var,value=1,font="Courier 18",command=whale)
-r2=Radiobutton(f2,text="Glasses",variable=var,value=2,font="Courier 18")
-r3=Radiobutton(f2,text="Tree",variable=var,value=3,font="Courier 18",command=Umbrella)
+r2=Radiobutton(f2,text="Glasses",variable=var,value=2,font="Courier 18",command=glasses)
+r3=Radiobutton(f2,text="Umbrella",variable=var,value=3,font="Courier 18",command=Umbrella)
+r4=Radiobutton(f2,text="Butterfly",variable=var,value=3,font="Courier 18",command=butterfly)
 #--------
 r1.place(relx=0,rely=0)
-r3.place(relx=0.3,rely=0)
+r2.place(relx=0.4,rely=0)
+r3.place(relx=0.8,rely=0)
+r4.place(relx=0.4,rely=0.3)
 
 
 window.mainloop()
